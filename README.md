@@ -12,7 +12,7 @@ The tool gathers data from HSReplay (or allows manual user input, though current
 
 It generates an artificial field of lineups based on the frequency of each deck.
 
-The distribution of decks approximates a bell curve, ensuring realistic simulation conditions.
+The distribution of lineups approximates a bell curve, ensuring realistic simulation conditions.
 
 ### Win Rate Calculation
 
