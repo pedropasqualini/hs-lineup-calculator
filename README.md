@@ -37,7 +37,11 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Configure the configurations.py file to match your needs.
+Configure the configurations.py file to match your needs, and then run the script:
+```bash
+python3 main.py
+```
+It was developed using Python 3.9.17.
 
 ### Using HSReplay Advanced Filters
 
