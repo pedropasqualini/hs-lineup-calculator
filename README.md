@@ -8,11 +8,7 @@ The Hearthstone Lineup Calculator is a software tool designed to calculate the w
 
 ### Data Input
 
-The tool gathers data from HSReplay (or allows manual user input, though currently limited to decks available on HSReplay). Using this data:
-
-It generates an artificial field of lineups based on the frequency of each deck.
-
-The distribution of lineups approximates a bell curve, ensuring realistic simulation conditions.
+The tool gathers data from [HSReplay](https://hsreplay.net/meta/#tab=matchups) (or allows manual user input, though currently limited to decks available on HSReplay). Using this data it generates an artificial field of lineups based on the frequency of each deck. The distribution of lineups approximates a bell curve, ensuring realistic simulation conditions.
 
 ### Win Rate Calculation
 
