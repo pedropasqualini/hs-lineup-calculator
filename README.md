@@ -57,7 +57,7 @@ Examples of the expected input file format are available in the data folder.
 
 Ensure deck names match the exact names used in HSReplay (to correctly identify each archetype's class).
 
-Set the ```USER_INPUT``` flag to ```True``` in the configuration file.
+Set ```USER_INPUT=True``` in the configuration file.
 
 ## Optimizing Performance
 
