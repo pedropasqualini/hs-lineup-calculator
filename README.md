@@ -47,7 +47,7 @@ It was developed using Python 3.9.17.
 
 If using HSReplay advanced filters, you'll need cookies from an HSReplay Premium account.
 
-Create a .env file and input your cookies in the following format:
+Create a ```.env``` file and input your cookies in the following format:
 ```
 COOKIES='...'
 ``` 
