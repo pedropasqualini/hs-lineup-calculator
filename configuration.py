@@ -12,7 +12,7 @@ REGION  = "ALL"
 TIME_RANGE = "CURRENT_PATCH"
 # Will ignore decks that don't match the minimum number of games.
 # Should aim for about ~20 archetypes for a great analysis without taking too much time.
-MIN_GAMES = 70_000
+MIN_GAMES = 10_000
 
 ########## Manual input ##########
 # matchups csv file should be deck names exactly written as HSReplay and matchup percentages

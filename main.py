@@ -37,13 +37,12 @@ def main():
     translator = arcs['name'].to_dict()
     reverse_translator = {deck:index for index, deck in translator.items()}
     tasks = [(matchups_list, line, field, num_lines, reverse_translator) for line in lineups]
-    solve_line(tasks[0])
     with Pool() as pool:
         for r in tqdm(pool.imap_unordered(solve_line, tasks), total=len(tasks), desc="Calculating the best lineups..."):
             results.append(r)
-
     results_df = pd.DataFrame(results)
     sorted_results = results_df.sort_values(by=[4],ascending=False)
+    breakpoint()
     sorted_results.to_csv(OUTPUT_PATH,index=False,header=False)
     logger.success(f"Results saved to {OUTPUT_PATH}")
 
