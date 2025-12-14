@@ -1,4 +1,4 @@
-import requests
+from curl_cffi import requests
 import pandas as pd
 import math
 import itertools
@@ -9,7 +9,13 @@ from configuration import COOKIES, LEAGUE_RANK_RANGE, GAME_TYPE, REGION, TIME_RA
 logger.remove()
 logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True)
 
-def request_matchup_stats(headers={}):
+# Headers to mimic a real browser (bypass Cloudflare)
+DEFAULT_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.9',
+}
+
+def request_matchup_stats():
     url = "https://hsreplay.net/analytics/query/head_to_head_archetype_matchups_v2/"
     querystring = {
         "GameType":GAME_TYPE,
@@ -17,11 +23,10 @@ def request_matchup_stats(headers={}):
         "Region":REGION,
         "TimeRange":TIME_RANGE,
     }
+    headers = DEFAULT_HEADERS.copy()
     if COOKIES:
-        headers = {
-            "cookie": COOKIES,
-        }
-    response = requests.get(url, headers=headers, params=querystring)
+        headers["cookie"] = COOKIES
+    response = requests.get(url, headers=headers, params=querystring, impersonate="chrome110")
     if response.status_code != 200:
         logger.error(f"Request matchup data got status code {response.status_code}")
         logger.error(f"Response: {response.text}")
@@ -31,11 +36,10 @@ def request_matchup_stats(headers={}):
     return struct
 
 def request_archetypes():
-    url = "https://hsreplay.net/api/v1/archetypes/"
-    headers = {
-        "format":"json"
-    }
-    response = requests.get(url, headers=headers)
+    url = "https://hsreplay.net/api/v1/archetypes/?format=json"
+    headers = DEFAULT_HEADERS.copy()
+    headers["format"] = "json"
+    response = requests.get(url, headers=headers, impersonate="chrome110")
     if response.status_code != 200:
         logger.error(f"Request archetype data got status code {response.status_code}")
         logger.error(f"Response: {response.text}")

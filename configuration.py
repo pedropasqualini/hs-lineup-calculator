@@ -9,10 +9,10 @@ COOKIES = os.getenv("COOKIES")
 LEAGUE_RANK_RANGE = "BRONZE_THROUGH_GOLD"  # Standard filter without premium account
 GAME_TYPE = "RANKED_STANDARD"
 REGION  = "ALL"
-TIME_RANGE = "CURRENT_PATCH"
+TIME_RANGE = "LAST_7_DAYS"
 # Will ignore decks that don't match the minimum number of games.
 # Should aim for about ~20 archetypes for a great analysis without taking too much time.
-MIN_GAMES = 10_000
+MIN_GAMES = 30_000
 
 ########## Manual input ##########
 # matchups csv file should be deck names exactly written as HSReplay and matchup percentages
